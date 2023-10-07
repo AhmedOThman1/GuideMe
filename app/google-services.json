@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071477461692",
+    "project_id": "guideme-10485",
+    "storage_bucket": "guideme-10485.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071477461692:android:58c906523557d5d9d376b9",
+        "android_client_info": {
+          "package_name": "com.guideMe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9suMiomy6HZEWfdoYaizm5mNSVp9YQis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

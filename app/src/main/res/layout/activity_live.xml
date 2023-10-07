@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.LiveActivity">
+
+    <include layout="@layout/background_design" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true" />
+
+
+    <View
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#11123456"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:visibility="gone" />
+</androidx.constraintlayout.widget.ConstraintLayout>

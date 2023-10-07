@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Guide Me</string>
+
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">don\'t have an account ? <b>Sign up.</b></string>
+    <string name="already_have_an_account_login">Already have an account? <b>Login.</b></string>
+    <string name="full_name">Full name</string>
+    <string name="logout">Logout</string>
+    <string name="sign_up">Sign up</string>
+    <string name="phone">Phone</string>
+    <string name="empty">can\'t be empty</string>
+    <string name="confirm_password_error">must match the previous entry</string>
+    <string name="email_not_valid">email is not valid</string>
+    <string name="phone_not_valid">phone number is not valid</string>
+    <string name="can_not_be_less_than_6">"password can\'t be less than 6 characters"</string>
+    <string name="edit">Edit</string>
+    <string name="oops_no_result_found">Oops! No result found</string>
+    <string name="try_search_for_something_more_general_check_for_spelling_mistakes">Try search for something more general, check for spelling mistakes.</string>
+    <string name="forgotten_password">Forgotten password?</string>
+    <string name="back">Back</string>
+    <string name="send_instructions">Send Instructions</string>
+    <string name="reset_password">Reset password</string>
+    <string name="reset_password_description">Enter the email associated with your account and we\'ll send an email with instructions to reset your password.</string>
+    <string name="create_new_account">Create New Account</string>
+
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="plus">+</string>
+    <string name="you_haven_t_create_any_product_in_the_store_yet">You haven\'t create any product in the store yet</string>
+    <string name="add_product">Add Product</string>
+    <string name="there_are_no_notifications_for_you_here_yet">There are no notifications for you here yet</string>
+    <string name="pick_image">Pick Image</string>
+    <string name="product_name">Product name</string>
+    <string name="price_per_one_product">Price per one product</string>
+    <string name="quantity">Quantity</string>
+    <string name="upload_product">Upload Product</string>
+    <string name="out_of_stock">Out of stock</string>
+
+
+    <string name="sentence1">Do you want object detection, or text detection?</string>
+    <string name="sentence4">Hello! How can I help you today?</string>
+    <string name="sentence5">Hi there! How can I help you?</string>
+    <string name="sentence6">How can I assist you?</string>
+    <string name="sentence7">"عليك السلام ، كيف أساعدك؟"</string>
+    <string name="sentence8">"OK, how can I help you?"</string>
+    <string name="sentence9">The time now is </string>
+    <string name="sentence10">"Today is "</string>
+    <string name="search">Search</string>
+    <string name="store">Store</string>
+    <string name="events">Events</string>
+    <string name="payments">Payments</string>
+    <string name="donations">Donations</string>
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="are_you_a_non_blind_person">A non-blind person? Swipe the lock below.</string>
+    <string name="share_text" >Want to serve the blind people? Install this app for them now for free! https://bit.ly/download_guide_me_app</string>
+    <string name="there_are_no_donation_notifications_here_yet">There are no donation notifications here yet</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="joined">Joined</string>
+    <string name="event_title">Event title</string>
+    <string name="event_location">Event location</string>
+    <string name="event_date">Event date</string>
+    <string name="add_event">Add Event</string>
+    <string name="there_are_no_events_here_yet">There are no events here yet</string>
+    <string name="joined_users">Joined Users</string>
+    <string name="there_are_no_joined_users_in_this_event_yet">There are no joined users in this event yet</string>
+
+    <string name="credit_card_info">Credit card info</string>
+    <string name="credit_card_number">Credit card number</string>
+    <string name="expiry_month">Expiry month</string>
+    <string name="expiry_year">Expiry year</string>
+    <string name="cvv">CVV</string>
+    <string name="edit_credit_card">Edit credit card</string>
+    <string name="confirm_cvv">Confirm CVV</string>
+    <string name="card_error">card must be 16 number **** **** **** ****</string>
+    <string name="stars">******</string>
+    <string name="stars_card_4">**** **** **** ****</string>
+    <string name="expire">Expire</string>
+    <string name="code">Code</string>
+    <string name="stars_4">****</string>
+    <string name="stars_2">**/**</string>
+    <string name="be_my_eyes">Be my eyes</string>
+    <string name="profile">Profile</string>
+    <string name="click_to_logout_your_account">Click to logout your account</string>
+    <string name="change_name">Change name</string>
+    <string name="change">Change</string>
+    <string name="change_password">Change password</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="change_phone">Change phone</string>
+    <string name="change_photo">Change photo</string>
+    <string name="object_detection"><![CDATA[-> Object Detection]]></string>
+    <string name="text_detection"><![CDATA[-> Text Detection]]></string>
+    <string name="voice_command"><![CDATA[-> Voice Command]]></string>
+    <string name="there_are_no_blind_people_requests_right_now">There are no blind people requests right now</string>
+    <string name="it_s_that_easy_click_on_any_card_below_to_open_a_live_call_and_help_the_blind_people">It\'s that easy click on any card below to open a live call and help the blind people!</string>
+    <string name="donate">Donate</string>
+    <string name="amount">Amount</string>
+    <string name="donate_to_blind_people">Donate to blind people</string>
+    <string name="cart">Cart</string>
+    <string name="there_are_no_items_in_your_cart_yet">There are no items in your cart yet</string>
+    <string name="checkout">Checkout</string>
+
+</resources>

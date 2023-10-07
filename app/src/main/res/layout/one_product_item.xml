@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    android:background="@color/white"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="25dp"
+    app:strokeColor="@color/white"
+    app:strokeWidth="0dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_margin="2dp"
+        android:layout_height="match_parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/one_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/background_rounded"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="25dp"
+            tools:src="@tools:sample/avatars[4]" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/background_rounded_15"
+            android:backgroundTint="#aaffffff"
+            app:layout_constraintBottom_toBottomOf="@id/one_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/item_minus"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/background_plus_minus"
+                android:gravity="center"
+                android:text="@string/minus"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:gravity="center"
+                android:maxLength="3"
+                android:minWidth="32dp"
+                android:text="@string/zero"
+                android:textColor="#3F51B5"
+                app:layout_constraintBottom_toBottomOf="@id/item_minus"
+                app:layout_constraintStart_toEndOf="@id/item_minus"
+                app:layout_constraintTop_toTopOf="@id/item_minus" />
+
+
+            <TextView
+                android:id="@+id/item_plus"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/background_plus_minus"
+                android:gravity="center"
+                android:text="@string/plus"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/item_quantity"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/out_of_stock"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#33FF0000"
+            android:gravity="center_horizontal"
+            android:paddingTop="80dp"
+            android:text="@string/out_of_stock"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/one_image"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textColor="@color/dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="$284.99" />
+
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:alpha=".8"
+            android:background="@drawable/background_rounded"
+            android:backgroundTint="#393B43"
+            android:padding="8dp"
+            android:shadowColor="@color/dark"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Fruit" />
+
+        <ImageView
+            android:id="@+id/description"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_info"
+            app:layout_constraintBottom_toBottomOf="@id/category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/category"
+            app:tint="#393B43" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

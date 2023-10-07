@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".ui.fragments.auth.SignUpFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:alpha=".8"
+        android:background="@drawable/background_gradient"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:elevation="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tint="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/back_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/background_rounded"
+        android:backgroundTint="#F1F2F3"
+        android:elevation="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:text="@string/back"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="300dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="-36dp"
+                app:cardBackgroundColor="#F1F2F3"
+                app:cardCornerRadius="35dp"
+                app:cardElevation="0dp"
+                app:contentPadding="8dp"
+                app:layout_constraintTop_toBottomOf="@id/user_img">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="24dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="16dp"
+                        android:elevation="4dp"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorEnabled="true"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:boxStrokeWidth="0dp"
+                        app:startIconDrawable="@drawable/ic_name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/full_name"
+                            android:inputType="textPersonName"
+                            android:textColor="#000"
+                            tools:text="@tools:sample/full_names" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:elevation="4dp"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorEnabled="true"
+                        app:layout_constraintTop_toBottomOf="@id/full_name"
+                        app:startIconDrawable="@drawable/ic_phone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/phone"
+                            android:inputType="phone"
+                            android:textColor="#000" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeWidth="0dp"
+                        android:layout_marginHorizontal="24dp"
+                        android:elevation="4dp"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorEnabled="true"
+                        app:layout_constraintTop_toBottomOf="@id/phone"
+                        app:startIconDrawable="@drawable/ic_email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        app:boxStrokeWidth="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:elevation="4dp"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorEnabled="true"
+                        app:layout_constraintTop_toBottomOf="@id/email"
+                        app:passwordToggleEnabled="true"
+                        app:startIconDrawable="@drawable/ic_password">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingVertical="15dp"
+                        android:text="@string/sign_up"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/password" />
+
+                    <ProgressBar
+                        android:id="@+id/loading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:elevation="16dp"
+                        android:indeterminateTint="@color/white"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/sign_up"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/sign_up"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="64dp"
+                android:elevation="2dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

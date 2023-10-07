@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_manager_graph.xml"
+    app:startDestination="@id/managerStoreFragment">
+
+    <fragment
+        android:id="@+id/managerStoreFragment"
+        android:name="com.guideMe.ui.fragments.common.store.ShowStoreFragment"
+        android:label="fragment_manager_store"
+        tools:layout="@layout/fragment_show_store" >
+        <action
+            android:id="@+id/action_managerStoreFragment_to_managerAddProductFragment"
+            app:destination="@id/managerAddProductFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/managerAddProductFragment"
+        android:name="com.guideMe.ui.fragments.manager.store.add.ManagerAddProductFragment"
+        android:label="fragment_manager_add_product"
+        tools:layout="@layout/fragment_manager_add_product" />
+
+    <fragment
+        android:id="@+id/managerDonationsFragment"
+        android:name="com.guideMe.ui.fragments.manager.donation.ManagerDonationsFragment"
+        android:label="fragment_manager_donations"
+        tools:layout="@layout/fragment_manager_donations" />
+
+    <fragment
+        android:id="@+id/managerEventsFragment"
+        android:name="com.guideMe.ui.fragments.common.events.ShowEventsFragment"
+        android:label="fragment_manager_events"
+        tools:layout="@layout/fragment_show_events" >
+        <action
+            android:id="@+id/action_managerEventsFragment_to_managerAddEventFragment"
+            app:destination="@id/managerAddEventFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/managerAddEventFragment"
+        android:name="com.guideMe.ui.fragments.manager.events.add.ManagerAddEventFragment"
+        android:label="fragment_manager_add_event"
+        tools:layout="@layout/fragment_manager_add_event" />
+
+    <fragment
+        android:id="@+id/oneEventFragment"
+        android:name="com.guideMe.ui.fragments.common.events.one.OneEventFragment"
+        android:label="fragment_one_event"
+        tools:layout="@layout/fragment_one_event" />
+    <fragment
+        android:id="@+id/managerPaymentsFragment"
+        android:name="com.guideMe.ui.fragments.manager.payment.ManagerPaymentsFragment"
+        android:label="fragment_manager_payments"
+        tools:layout="@layout/fragment_manager_payments" />
+</navigation>

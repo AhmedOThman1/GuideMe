@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_helper_graph.xml"
+    app:startDestination="@id/showStoreFragment">
+
+    <fragment
+        android:id="@+id/showStoreFragment"
+        android:name="com.guideMe.ui.fragments.common.store.ShowStoreFragment"
+        android:label="fragment_show_store"
+        tools:layout="@layout/fragment_show_store" />
+
+    <fragment
+        android:id="@+id/showEventsFragment"
+        android:name="com.guideMe.ui.fragments.common.events.ShowEventsFragment"
+        android:label="fragment_show_events"
+        tools:layout="@layout/fragment_show_events" />
+
+    <fragment
+        android:id="@+id/showFavEventsFragment"
+        android:name="com.guideMe.ui.fragments.common.events.ShowEventsFragment"
+        android:label="fragment_show_events"
+        tools:layout="@layout/fragment_show_events" />
+
+    <fragment
+        android:id="@+id/oneEventFragment"
+        android:name="com.guideMe.ui.fragments.common.events.one.OneEventFragment"
+        android:label="fragment_one_event"
+        tools:layout="@layout/fragment_one_event" />
+
+    <fragment
+        android:id="@+id/helperProfileFragment"
+        android:name="com.guideMe.ui.fragments.helper.profile.HelperProfileFragment"
+        android:label="fragment_helper_profile"
+        tools:layout="@layout/fragment_helper_profile" />
+
+    <fragment
+        android:id="@+id/helperByMyEyesFragment"
+        android:name="com.guideMe.ui.fragments.helper.beMyEyes.HelperByMyEyesFragment"
+        android:label="fragment_helper_be_my_eyes"
+        tools:layout="@layout/fragment_helper_be_my_eyes" />
+    <fragment
+        android:id="@+id/helperCartFragment"
+        android:name="com.guideMe.ui.fragments.helper.store.cart.HelperCartFragment"
+        android:label="fragment_helper_cart"
+        tools:layout="@layout/fragment_helper_cart" />
+
+
+</navigation>
