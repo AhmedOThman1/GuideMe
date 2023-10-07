@@ -79,13 +79,13 @@ public class ShowEventsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentShowEventsBinding.inflate(inflater, container, false);
-        Bundle args = getArguments();
 
+        Bundle args = getArguments();
         if (args != null) {
             fav = args.getBoolean("fav", false);
-            if (fav)
-                binding.fav.setVisibility(View.GONE);
+            Log.w("FAV", "" + fav);
         }
+        Log.w("FAV - ARG", "" + args);
 
         if (type.equals("Manager")) {
             navId = R.id.nav_manager_host_fragment;
@@ -97,18 +97,23 @@ public class ShowEventsFragment extends Fragment {
         } else {//TO DO
             navId = R.id.nav_helper_host_fragment;
             HelperMainFragment.bottomNavigationView.setSelectedItemId(R.id.nav_events);
+//            int currentFragmentId = Navigation.findNavController(requireActivity(), R.id.nav_helper_host_fragment).getCurrentDestination().getId();
+//            fav = currentFragmentId == R.id.showFavEventsFragment;
+            Log.w("FAV2", "" + fav);
+            Log.w("FAVB", "" + Navigation.findNavController(requireActivity(),navId).getCurrentBackStack());
             HelperMainFragment.toolbar.setTitle(fav ? "Favourite Events" : getString(R.string.events));
             binding.addEvent.setVisibility(View.GONE);
             binding.donateCard.setVisibility(View.VISIBLE);
-            binding.fav.setVisibility(View.VISIBLE);
+            binding.fav.setVisibility(fav ? View.GONE : View.VISIBLE);
         }
         Log.w("EVENTS", type + "," + type.equals("Manager") + "," + binding.addEvent.getVisibility());
 
         binding.fav.setOnClickListener(v -> {
+            Log.w("FAVC","H");
             Bundle bundle = new Bundle();
             bundle.putBoolean("fav", true);
             Navigation.findNavController(requireActivity(), navId)
-                    .navigate(R.id.showFavEventsFragment, bundle);
+                    .navigate(R.id.showEventsFragment, bundle);
         });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -127,12 +132,7 @@ public class ShowEventsFragment extends Fragment {
         binding.eventsRecycler.addOnItemTouchListener(new RecyclerViewTouchListener(requireContext(), binding.eventsRecycler, new RecyclerViewTouchListener.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Bundle bundle = new Bundle();
-                bundle.putString("id", tempEventItems.get(position).id);
-                Navigation.findNavController(requireActivity(),
-                                type.equals("Manager") ? R.id.nav_manager_host_fragment :
-                                        R.id.nav_helper_host_fragment)
-                        .navigate(R.id.oneEventFragment, bundle);
+
             }
 
             @Override
@@ -286,10 +286,12 @@ public class ShowEventsFragment extends Fragment {
 
                     item.loved = (favEventsIds.contains(item.id));
                     //TO DO Check date and validate
-                    Log.w("validate", item.date + "," + System.currentTimeMillis() + "," + TimeUnit.DAYS.toMillis(2) + "=" + (item.date > (System.currentTimeMillis() + TimeUnit.DAYS.toMillis(2))));
-                    if (item.date > (System.currentTimeMillis() + TimeUnit.DAYS.toMillis(2))
+                    Log.w("validate", item.date + "," + System.currentTimeMillis() + "," + TimeUnit.DAYS.toMillis(2) + "=" + ((System.currentTimeMillis() + TimeUnit.DAYS.toMillis(2)) > item.date));
+                    if ((System.currentTimeMillis() + TimeUnit.DAYS.toMillis(2) > item.date)
                             && type.equals("Helper"))
                         continue;
+                    //1696926616967
+                    //1696696347789
 
                     if (!fav || item.loved)
                         eventItems.add(item);

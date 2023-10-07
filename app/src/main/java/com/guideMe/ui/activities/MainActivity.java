@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        STT.results = new MutableLiveData<>();
+//        STT.results = new MutableLiveData<>();
 
     }
 }

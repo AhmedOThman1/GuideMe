@@ -70,8 +70,16 @@ public class EventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .into(ViewHolder.binding.oneImage);
 
-        ViewHolder.binding.favLayout.setVisibility(type.equals("User") ? View.VISIBLE : View.GONE);
+        ViewHolder.binding.favLayout.setVisibility(type.equals("Helper") ? View.VISIBLE : View.GONE);
 
+        ViewHolder.binding.getRoot().setOnClickListener(v->{
+            Bundle bundle = new Bundle();
+            bundle.putString("id", Models.get(position).id);
+            Navigation.findNavController(((Activity) context),
+                            type.equals("Manager") ? R.id.nav_manager_host_fragment :
+                                    R.id.nav_helper_host_fragment)
+                    .navigate(R.id.oneEventFragment, bundle);
+        });
         ViewHolder.binding.favLayout.setOnClickListener(v -> {
             //TO DO put this apartment in the fav or delete it from fav
             FirebaseDatabase database = FirebaseDatabase.getInstance();

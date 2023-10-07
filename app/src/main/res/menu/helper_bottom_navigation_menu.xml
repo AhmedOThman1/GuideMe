@@ -17,6 +17,11 @@
         android:title="@string/be_my_eyes" />
 
     <item
+        android:id="@+id/nav_payments"
+        android:icon="@drawable/ic_payment"
+        android:title="@string/payments" />
+
+    <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/profile"
         android:title="@string/profile" />

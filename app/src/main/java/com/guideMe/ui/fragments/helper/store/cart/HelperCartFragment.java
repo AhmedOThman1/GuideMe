@@ -333,6 +333,7 @@ public class HelperCartFragment extends Fragment {
                 Payment item = new Payment();
                 item.id = paymentsRef.push().getKey();
                 item.userId = (firebaseUser.getUid());
+                item.helper = currentUserItem;
                 item.notificationId = (paymentsRef.push().getKey());
                 item.date = (System.currentTimeMillis());
                 stringBuilder.append(" for ");

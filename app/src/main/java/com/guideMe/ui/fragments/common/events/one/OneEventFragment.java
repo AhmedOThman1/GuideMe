@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -69,7 +70,7 @@ public class OneEventFragment extends Fragment {
         usersAdapter = new UsersAdapter(requireContext());
         usersAdapter.setModels(users);
         binding.usersRecycler.setAdapter(usersAdapter);
-        binding.usersRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+        binding.usersRecycler.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         Bundle arg = getArguments();
         if (arg != null) {

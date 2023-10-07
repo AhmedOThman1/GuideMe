@@ -143,7 +143,8 @@ public class LiveActivity extends AppCompatActivity {
         config.useSpeakerWhenJoining = true;
         config.layout.mode = ZegoLayoutMode.PICTURE_IN_PICTURE;
         config.layout.config = new ZegoLayoutPictureInPictureConfig();
-        config.bottomMenuBarConfig.buttons = new ArrayList<>();
+        config.bottomMenuBarConfig.buttons = new ArrayList<>(
+                Arrays.asList(ZegoMenuBarButtonName.TOGGLE_CAMERA_BUTTON, ZegoMenuBarButtonName.HANG_UP_BUTTON));
         config.topMenuBarConfig.buttons = new ArrayList<>();
         config.bottomMenuBarConfig.style = ZegoMenuBarStyle.LIGHT;
         config.topMenuBarConfig.isVisible = false;

@@ -5,7 +5,7 @@
     android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.manager.payment.ManagerPaymentsFragment">
+    tools:context=".ui.fragments.common.payment.ShowPaymentsFragment">
 
     <EditText
         android:id="@+id/search"

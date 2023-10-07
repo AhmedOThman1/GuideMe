@@ -16,13 +16,7 @@
         android:name="com.guideMe.ui.fragments.common.events.ShowEventsFragment"
         android:label="fragment_show_events"
         tools:layout="@layout/fragment_show_events" />
-
-    <fragment
-        android:id="@+id/showFavEventsFragment"
-        android:name="com.guideMe.ui.fragments.common.events.ShowEventsFragment"
-        android:label="fragment_show_events"
-        tools:layout="@layout/fragment_show_events" />
-
+ 
     <fragment
         android:id="@+id/oneEventFragment"
         android:name="com.guideMe.ui.fragments.common.events.one.OneEventFragment"
@@ -40,11 +34,18 @@
         android:name="com.guideMe.ui.fragments.helper.beMyEyes.HelperByMyEyesFragment"
         android:label="fragment_helper_be_my_eyes"
         tools:layout="@layout/fragment_helper_be_my_eyes" />
+
     <fragment
         android:id="@+id/helperCartFragment"
         android:name="com.guideMe.ui.fragments.helper.store.cart.HelperCartFragment"
         android:label="fragment_helper_cart"
         tools:layout="@layout/fragment_helper_cart" />
+
+    <fragment
+        android:id="@+id/showPaymentsFragment"
+        android:name="com.guideMe.ui.fragments.common.payment.ShowPaymentsFragment"
+        android:label="fragment_show_payments"
+        tools:layout="@layout/fragment_show_payments" />
 
 
 </navigation>

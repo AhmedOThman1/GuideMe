@@ -1,4 +1,6 @@
-package com.guideMe.ui.fragments.manager.payment;
+package com.guideMe.ui.fragments.common.payment;
+
+import static com.guideMe.ui.fragments.common.LauncherFragment.type;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,24 +25,26 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.guideMe.R;
 import com.guideMe.adapters.PaymentsAdapter;
-import com.guideMe.databinding.FragmentManagerPaymentsBinding;
-import com.guideMe.pojo.Donation;
+import com.guideMe.databinding.FragmentShowPaymentsBinding;
 import com.guideMe.pojo.Payment;
+import com.guideMe.ui.fragments.helper.main.HelperMainFragment;
 import com.guideMe.ui.fragments.manager.main.ManagerMainFragment;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class ManagerPaymentsFragment extends Fragment {
+public class ShowPaymentsFragment extends Fragment {
 
-    FragmentManagerPaymentsBinding binding;
+    FragmentShowPaymentsBinding binding;
+    FirebaseUser firebaseUser;
     FirebaseDatabase database;
     DatabaseReference paymentsRef;
     ArrayList<Payment> payments = new ArrayList<>();
     ArrayList<Payment> tempPayments = new ArrayList<>();
     PaymentsAdapter paymentsAdapter;
+    int navId;
 
-    public ManagerPaymentsFragment() {
+    public ShowPaymentsFragment() {
     }
 
     @Nullable
@@ -47,11 +53,19 @@ public class ManagerPaymentsFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FragmentManagerPaymentsBinding.inflate(inflater, container, false);
+        binding = FragmentShowPaymentsBinding.inflate(inflater, container, false);
 
-        ManagerMainFragment.bottomNavigationView.setSelectedItemId(R.id.nav_payments);
-        ManagerMainFragment.toolbar.setTitle(getString(R.string.payments));
+        if (type.equals("Manager")) {
+            navId = R.id.nav_manager_host_fragment;
+            ManagerMainFragment.bottomNavigationView.setSelectedItemId(R.id.nav_payments);
+            ManagerMainFragment.toolbar.setTitle(getString(R.string.payments));
+        } else {
+            navId = R.id.nav_helper_host_fragment;
+            HelperMainFragment.bottomNavigationView.setSelectedItemId(R.id.nav_payments);
+            HelperMainFragment.toolbar.setTitle(getString(R.string.payments));
+        }
 
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         paymentsRef = database.getReference("Payment");
 
@@ -107,9 +121,10 @@ public class ManagerPaymentsFragment extends Fragment {
                 tempPayments = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Payment product = dataSnapshot.getValue(Payment.class);
-                    payments.add(product);
+                    if (type.equals("Manager") || product.userId.equals(firebaseUser.getUid()))
+                        payments.add(product);
                 }
-                payments.sort(Comparator.comparing(donation -> donation.date,Comparator.reverseOrder()));
+                payments.sort(Comparator.comparing(donation -> donation.date, Comparator.reverseOrder()));
                 tempPayments.addAll(payments);
                 paymentsAdapter.setModels(tempPayments);
                 binding.emptyStates.setVisibility(tempPayments.isEmpty() ? View.VISIBLE : View.GONE);
@@ -137,7 +152,7 @@ public class ManagerPaymentsFragment extends Fragment {
                 if (!binding.search.getText().toString().trim().isEmpty())
                     binding.search.setText("");
                 else
-                    Navigation.findNavController(requireActivity(), R.id.nav_manager_host_fragment)
+                    Navigation.findNavController(requireActivity(), navId)
                             .popBackStack();
             }
         };

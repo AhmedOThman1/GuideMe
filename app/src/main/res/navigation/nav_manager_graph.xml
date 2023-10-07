@@ -50,7 +50,7 @@
         tools:layout="@layout/fragment_one_event" />
     <fragment
         android:id="@+id/managerPaymentsFragment"
-        android:name="com.guideMe.ui.fragments.manager.payment.ManagerPaymentsFragment"
+        android:name="com.guideMe.ui.fragments.common.payment.ShowPaymentsFragment"
         android:label="fragment_manager_payments"
-        tools:layout="@layout/fragment_manager_payments" />
+        tools:layout="@layout/fragment_show_payments" />
 </navigation>

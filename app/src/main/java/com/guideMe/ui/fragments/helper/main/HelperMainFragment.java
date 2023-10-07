@@ -66,6 +66,9 @@ public class HelperMainFragment extends Fragment {
             } else if (item.getItemId() == R.id.nav_be_my_eyes) {
                 if (currentFragmentId != R.id.helperByMyEyesFragment)
                     Navigation.findNavController(requireActivity(), R.id.nav_helper_host_fragment).navigate(R.id.helperByMyEyesFragment);
+            }  else if (item.getItemId() == R.id.nav_payments) {
+                if (currentFragmentId != R.id.showPaymentsFragment)
+                    Navigation.findNavController(requireActivity(), R.id.nav_helper_host_fragment).navigate(R.id.showPaymentsFragment);
             } else if (item.getItemId() == R.id.nav_profile) {
                 if (currentFragmentId != R.id.helperProfileFragment)
                     Navigation.findNavController(requireActivity(), R.id.nav_helper_host_fragment).navigate(R.id.helperProfileFragment);
