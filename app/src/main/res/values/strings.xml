@@ -39,12 +39,10 @@
     <string name="upload_product">Upload Product</string>
     <string name="out_of_stock">Out of stock</string>
 
-
     <string name="sentence1">Do you want object detection, or text detection?</string>
     <string name="sentence4">Hello! How can I help you today?</string>
     <string name="sentence5">Hi there! How can I help you?</string>
     <string name="sentence6">How can I assist you?</string>
-    <string name="sentence7">"عليك السلام ، كيف أساعدك؟"</string>
     <string name="sentence8">"OK, how can I help you?"</string>
     <string name="sentence9">The time now is </string>
     <string name="sentence10">"Today is "</string>

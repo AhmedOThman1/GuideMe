@@ -4,6 +4,7 @@ import static com.guideMe.ui.fragments.common.LauncherFragment.type;
 import static com.guideMe.ui.fragments.manager.main.ManagerMainFragment.bottomNavigationView;
 import static com.guideMe.ui.fragments.manager.main.ManagerMainFragment.toolbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -215,7 +216,8 @@ public class ShowStoreFragment extends Fragment {
                         //Important to change the position of the Badge
                         badgeDrawable.setHorizontalOffset(30);
                         badgeDrawable.setVerticalOffset(20);
-
+                        badgeDrawable.setBackgroundColor(Color.WHITE);
+                        badgeDrawable.setBadgeTextColor(Color.RED);
                         BadgeUtils.attachBadgeDrawable(badgeDrawable, binding.addProduct, null);
 
                         binding.addProduct.getViewTreeObserver().removeOnGlobalLayoutListener(this);

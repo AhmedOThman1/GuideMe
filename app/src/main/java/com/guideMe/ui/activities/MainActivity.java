@@ -174,10 +174,8 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("userName", "Blind Person");
             startActivity(intent);
         } else if (textToHandle.contains("what is this app") || textToHandle.contains("about") || textToHandle.contains("about the app") || textToHandle.contains("about us")) {
-//            Navigation.findNavController(this, R.id.nav_host_fragment)
-//                    .navigate(R.id.aboutUsFragment);
+            Speaker.speak("Welcome to Guide Me, an app dedicated to assisting the visually impaired. Use voice commands to access services like object recognition, text detection, and more. Connect with volunteers for real-time assistance—all in one place to empower and connect.");
         }
-        //TODO History, About us
         ///////////////
         else if (textToHandle.contains("hi") || textToHandle.contains("hello") || textToHandle.contains("hey") || textToHandle.contains("how are you")) {
             int r = (int) ((Math.random() * (300 - 1)) + 1);
@@ -188,11 +186,6 @@ public class MainActivity extends AppCompatActivity {
             else
                 Speaker.speak(getString(R.string.sentence6));
 
-            while (Speaker.isSpeakingNow()) {
-            }
-            startLongClick(this, null);
-        } else if (textToHandle.contains("السلام عليكم") || textToHandle.contains("سلام عليكم")) {
-            Speaker.speak(getString(R.string.sentence7));
             while (Speaker.isSpeakingNow()) {
             }
             startLongClick(this, null);
@@ -207,14 +200,8 @@ public class MainActivity extends AppCompatActivity {
             Speaker.speakAfter(calendar.get(Calendar.HOUR) + " o'clock");
             if (calendar.get(Calendar.MINUTE) != 0)
                 Speaker.speakAfter(" and " + calendar.get(Calendar.MINUTE) + " minutes.");
-            Speaker.speakAfter(getHours(System.currentTimeMillis())
-                    + getMinutes(System.currentTimeMillis())
-            );
         } else if (textToHandle.contains("date") || textToHandle.contains("today") || textToHandle.contains("what today") || textToHandle.contains("what day is it")) {
             Speaker.speak(getString(R.string.sentence10) + getDays(System.currentTimeMillis()) + ", " + new SimpleDateFormat("d MMMM", Locale.forLanguageTag(language)).format(System.currentTimeMillis()));
-        } else if (textToHandle.contains("الرجوع") || textToHandle.contains("الشاشة الرئيسية") || textToHandle.contains("الشاشة الرئيسيه") || textToHandle.contains("الشاشه الرئيسيه") || textToHandle.contains("back") || textToHandle.contains("home page") || textToHandle.contains("open home") || textToHandle.contains("home screen")) {
-//            Navigation.findNavController(this, R.id.nav_host_fragment)
-//                    .navigate(R.id.homeFragment);
         }
 
         Toast.makeText(this, textToHandle, Toast.LENGTH_SHORT).show();
@@ -223,71 +210,7 @@ public class MainActivity extends AppCompatActivity {
     private String getDays(long currentTimeMillis) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(currentTimeMillis);
-//        if (!language.equals("ar-EG")) {
         return new SimpleDateFormat("EEEE", Locale.forLanguageTag(language)).format(currentTimeMillis);
-//        }
-
-//        switch (calendar.get(Calendar.DAY_OF_MONTH)) {
-//            case Calendar.SATURDAY:
-//                return "السبت";
-//            case Calendar.SUNDAY:
-//                return "الاحد";
-//            case Calendar.MONDAY:
-//                return "الاثنين";
-//            case Calendar.TUESDAY:
-//                return "الثلاثاء";
-//            case Calendar.WEDNESDAY:
-//                return "الاربعاء";
-//            case Calendar.THURSDAY:
-//                return "الخميس";
-//            case Calendar.FRIDAY:
-//                return "الجمعة";
-//            default:
-//                return "خطأ";
-//        }
-    }
-
-    private String getHours(long currentTimeMillis) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(currentTimeMillis);
-        switch (calendar.get(Calendar.HOUR)) {
-            case 1:
-                return "الواحدة";
-            case 2:
-                return "الثانية";
-            case 3:
-                return "الثالثة";
-            case 4:
-                return "الرابعة";
-            case 5:
-                return "الخامسة";
-            case 6:
-                return "السادسة";
-            case 7:
-                return "السابعة";
-            case 8:
-                return "الثامنه";
-            case 9:
-                return "التاسعه";
-            case 10:
-                return "العاشرة";
-            case 11:
-                return "الحادية عشر";
-            case 0:
-                return "الثانية عشر";
-            default:
-                return "خطأ";
-        }
-    }
-
-    private String getMinutes(long currentTimeMillis) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(currentTimeMillis);
-        int min = calendar.get(Calendar.MINUTE);
-        if (min != 0) {
-            return " و " + min + " دقيقة " + (calendar.get(Calendar.AM_PM) == Calendar.AM ? " صباحاً " : " مساءاً ");
-        } else
-            return (calendar.get(Calendar.AM_PM) == Calendar.AM ? " صباحاً " : " مساءً ");
     }
 
     public static boolean checkPermission(Context activity, String permission) {
@@ -298,24 +221,6 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-//
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == code) {
-//            if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-//                Toast.makeText(this, "Need permissions " + Manifest.permission.RECORD_AUDIO, Toast.LENGTH_LONG).show();
-//                return;
-//            }
-//
-//            // Here we continue only if all permissions are granted.
-//            // The permissions can also be granted in the system settings manually.
-//            STT.Init(this);
-//        }
-//    }
-
 
     public static void sendNotificationWithToken(String token, String title, String message) {
         FCM_ApiClient.getINSTANCE()
