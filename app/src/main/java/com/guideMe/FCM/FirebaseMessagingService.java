@@ -46,7 +46,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
             Log.w("TAGABC", title + "," + body);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel channel = new NotificationChannel("ExpertNotification", "ExpertNotification", NotificationManager.IMPORTANCE_HIGH);
+                NotificationChannel channel = new NotificationChannel("FCMNotification", "FCMNotification", NotificationManager.IMPORTANCE_HIGH);
                 NotificationManager manager = context.getSystemService(NotificationManager.class);
                 assert manager != null;
                 manager.createNotificationChannel(channel);
@@ -57,9 +57,13 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
             stackBuilder.addParentStack(MainActivity.class);
             stackBuilder.addNextIntent(notificationIntent);
-            PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_MUTABLE);
+                    } else
+                        pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "ExpertNotification")
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "FCMNotification")
                     .setContentTitle(title)
                     .setContentText(body)
                     .setTicker("New Message Alert!")
