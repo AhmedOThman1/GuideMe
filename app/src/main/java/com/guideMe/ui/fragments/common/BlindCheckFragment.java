@@ -1,25 +1,17 @@
 package com.guideMe.ui.fragments.common;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.speech.RecognitionListener;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.am.siriview.BuildConfig;
-import com.am.siriview.UpdaterThread;
 import com.guideMe.R;
 import com.guideMe.databinding.FragmentBlindCheckBinding;
 import com.guideMe.models.DoubleClickListener;
@@ -27,14 +19,8 @@ import com.guideMe.models.STT;
 import com.guideMe.models.Speaker;
 import com.guideMe.ui.activities.MainActivity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Random;
-
 public class BlindCheckFragment extends Fragment {
     FragmentBlindCheckBinding binding;
-    private SpeechRecognizer speechRecognizer;
 
     @Nullable
     @Override

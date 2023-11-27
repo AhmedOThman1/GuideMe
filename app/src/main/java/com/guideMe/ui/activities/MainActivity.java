@@ -149,13 +149,13 @@ public class MainActivity extends AppCompatActivity {
             }
             startLongClick(this, null);
         } else if (textToHandle.contains("object") || textToHandle.contains("object detection")) {
-            if (!checkPermission(this, REQUESTED_PERMISSIONS[1]) || !checkPermission(this, REQUESTED_PERMISSIONS[2]))
+            if (!checkPermission(this, REQUESTED_PERMISSIONS[1]) )
                 requestPermissions(REQUESTED_PERMISSIONS, code);
             else
                 Navigation.findNavController(this, R.id.nav_host_fragment)
                         .navigate(R.id.cameraObjectsFragment);
         } else if (textToHandle.contains("text") || textToHandle.contains("ocr") || textToHandle.contains("text detection") || textToHandle.contains("read this")) {
-            if (!checkPermission(this, REQUESTED_PERMISSIONS[1]) || !checkPermission(this, REQUESTED_PERMISSIONS[2]))
+            if (!checkPermission(this, REQUESTED_PERMISSIONS[1]) )
                 requestPermissions(REQUESTED_PERMISSIONS, code);
             else
                 Navigation.findNavController(this, R.id.nav_host_fragment)

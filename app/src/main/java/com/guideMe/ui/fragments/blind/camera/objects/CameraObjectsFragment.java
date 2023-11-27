@@ -77,6 +77,7 @@ public class CameraObjectsFragment extends Fragment
         binding = FragmentCameraObjectsBinding.inflate(inflater, container, false);
         requireActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        Log.w("Permission",""+hasPermission());
         if (hasPermission()) {
             setFragment();
         } else {
@@ -155,8 +156,7 @@ public class CameraObjectsFragment extends Fragment
     private boolean hasPermission() {
         return ActivityCompat.checkSelfPermission(
                 requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(
-                requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+               ;
     }
 
     private void requestPermission() {

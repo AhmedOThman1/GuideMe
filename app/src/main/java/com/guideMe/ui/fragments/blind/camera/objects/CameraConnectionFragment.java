@@ -89,11 +89,6 @@ public class CameraConnectionFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(final Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         startBackgroundThread();
@@ -149,7 +144,7 @@ public class CameraConnectionFragment extends Fragment {
         Log.i(LOGGING_TAG, "Min size: " + minSize);
 
         // Collect the supported resolutions that are at least as big as the preview Surface
-        final List<Size> bigEnough = new ArrayList();
+        final List<Size> bigEnough = new ArrayList<>();
         final List<Size> tooSmall = new ArrayList<Size>();
         for (final Size option : choices) {
             if (option.equals(DESIRED_PREVIEW_SIZE)) {

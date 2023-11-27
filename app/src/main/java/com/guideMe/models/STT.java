@@ -9,6 +9,7 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -41,9 +42,18 @@ public class STT {
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
                 context.getPackageName());
 
-        SpeechRecognitionListener listener = new SpeechRecognitionListener();
+        SpeechRecognitionListener listener = new SpeechRecognitionListener(context);
         mSpeechRecognizer.setRecognitionListener(listener);
 
+        if (SpeechRecognizer.isRecognitionAvailable(context)) {
+            // Your code to set up and start the recognizer
+            Log.w("Error","isRecognitionAvailable");
+            ArrayList<String> supportedLanguages = mSpeechRecognizerIntent.getStringArrayListExtra(RecognizerIntent.EXTRA_SUPPORTED_LANGUAGES);
+                Log.w("Error Language",""+supportedLanguages);
+        } else {
+            // Handle the case where speech recognition is not available
+            Log.w("Error","isRecognitionNOTAvailable");
+        }
         ///
         if (siriWave != null) {
             Log.w("HERE", "1" + siriWave);
@@ -68,6 +78,10 @@ public class STT {
 
 
     public static class SpeechRecognitionListener implements RecognitionListener {
+        Context context;
+        SpeechRecognitionListener (Context context){
+            this.context = context;
+        }
         @Override
         public void onReadyForSpeech(Bundle bundle) {
             Log.d("TAG", "onReadyForSpeech" + siriWave); //$NON-NLS-1$
@@ -104,6 +118,7 @@ public class STT {
         public void onError(int i) {
             tr = 0.0f;
             Log.d("Error Recording: ", BuildConfig.FLAVOR + i);
+            Toast.makeText(context, ""+handleSpeechRecognitionError(i), Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -132,5 +147,57 @@ public class STT {
 
     }
 
+    public static String handleSpeechRecognitionError(int errorCode) {
+        String errorTitle;
 
+        switch (errorCode) {
+            case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                errorTitle = "Network Timeout";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK:
+                errorTitle = "Network Error";
+                break;
+            case SpeechRecognizer.ERROR_AUDIO:
+                errorTitle = "Audio Error";
+                break;
+            case SpeechRecognizer.ERROR_SERVER:
+                errorTitle = "Server Error";
+                break;
+            case SpeechRecognizer.ERROR_CLIENT:
+                errorTitle = "Client Error";
+                break;
+            case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                errorTitle = "Speech Timeout";
+                break;
+            case SpeechRecognizer.ERROR_NO_MATCH:
+                errorTitle = "No Match";
+                break;
+            case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                errorTitle = "Recognizer Busy";
+                break;
+            case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                errorTitle = "Insufficient Permissions";
+                break;
+            case SpeechRecognizer.ERROR_TOO_MANY_REQUESTS:
+                errorTitle = "TOO MANY REQUESTS";
+                break;
+            case SpeechRecognizer.ERROR_SERVER_DISCONNECTED:
+                errorTitle = "ERROR SERVER DISCONNECTED";
+                break;
+            case SpeechRecognizer.ERROR_LANGUAGE_NOT_SUPPORTED:
+                errorTitle = "ERROR LANGUAGE NOT SUPPORTED";
+                break;
+            case SpeechRecognizer.ERROR_LANGUAGE_UNAVAILABLE:
+                errorTitle = "ERROR LANGUAGE UNAVAILABLE";
+                break;
+            case SpeechRecognizer.ERROR_CANNOT_CHECK_SUPPORT:
+                errorTitle = "ERROR CANNOT CHECK SUPPORT";
+                break;
+            default:
+                errorTitle = "Unknown Error";
+                break;
+        }
+
+        return errorTitle;
+    }
 }
